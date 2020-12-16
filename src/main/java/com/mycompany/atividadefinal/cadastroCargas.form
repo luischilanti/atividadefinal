@@ -45,7 +45,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="taraTxt" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="placaTxt" min="-2" pref="130" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Component id="label1" min="-2" max="-2" attributes="0"/>
@@ -54,7 +54,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Component id="placaTxt" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="taraTxt" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
@@ -172,12 +172,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="label2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="placaTxt" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="taraTxt" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="taraTxt" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="placaTxt" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="label3" min="-2" max="-2" attributes="0"/>
@@ -245,17 +245,17 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tara:"/>
+        <Property name="text" type="java.lang.String" value="Placa:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="taraTxt">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taraTxtActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="placaTxt">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="placaTxtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="taraTxt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taraTxtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="label2">
@@ -263,7 +263,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Placa:"/>
+        <Property name="text" type="java.lang.String" value="Tara:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="modeloTxt">

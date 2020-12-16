@@ -47,8 +47,8 @@ public class cadastroCargas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         label1 = new javax.swing.JLabel();
-        taraTxt = new javax.swing.JTextField();
         placaTxt = new javax.swing.JTextField();
+        taraTxt = new javax.swing.JTextField();
         label2 = new javax.swing.JLabel();
         modeloTxt = new javax.swing.JTextField();
         corTxt = new javax.swing.JTextField();
@@ -83,13 +83,7 @@ public class cadastroCargas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        label1.setText("Tara:");
-
-        taraTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taraTxtActionPerformed(evt);
-            }
-        });
+        label1.setText("Placa:");
 
         placaTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +91,14 @@ public class cadastroCargas extends javax.swing.JFrame {
             }
         });
 
+        taraTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taraTxtActionPerformed(evt);
+            }
+        });
+
         label2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        label2.setText("Placa:");
+        label2.setText("Tara:");
 
         modeloTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,14 +215,14 @@ public class cadastroCargas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(taraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(placaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(49, 49, 49)
                                         .addComponent(label1)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(60, 60, 60)
-                                        .addComponent(placaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(taraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(106, 106, 106)
                                         .addComponent(label2)))
@@ -304,11 +304,11 @@ public class cadastroCargas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(placaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(taraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(taraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(placaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -357,14 +357,14 @@ public class cadastroCargas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void taraTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taraTxtActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_taraTxtActionPerformed
-
     private void placaTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placaTxtActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_placaTxtActionPerformed
+
+    private void taraTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taraTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_taraTxtActionPerformed
 
     private void modeloTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeloTxtActionPerformed
         // TODO add your handling code here:
@@ -396,8 +396,8 @@ public class cadastroCargas extends javax.swing.JFrame {
 
     private void limparButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparButtonActionPerformed
         // TODO add your handling code here:
-        taraTxt.setText(null);
         placaTxt.setText(null);
+        taraTxt.setText(null);
         marcaTxt.setText(null);
         modeloTxt.setText(null);
         corTxt.setText(null);
@@ -435,8 +435,8 @@ public class cadastroCargas extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-        String tara = taraTxt.getText();
         String placa = placaTxt.getText();
+        String tara = taraTxt.getText();
         String marca = marcaTxt.getText();
         String modelo = modeloTxt.getText();
         String cor = corTxt.getText();
@@ -447,8 +447,8 @@ public class cadastroCargas extends javax.swing.JFrame {
         String cargaMax = cargaMaxTxt.getText();
 
         
-        cadastrarTxt(tara);
         cadastrarTxt(placa);
+        cadastrarTxt(tara);
         cadastrarTxt(marca);
         cadastrarTxt(modelo);
         cadastrarTxt(cor);
@@ -461,8 +461,8 @@ public class cadastroCargas extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
         
-        taraTxt.setText(null);
         placaTxt.setText(null);
+        taraTxt.setText(null);
         marcaTxt.setText(null);
         modeloTxt.setText(null);
         corTxt.setText(null);

@@ -5,8 +5,13 @@
  */
 package com.mycompany.atividadefinal;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import static java.lang.System.exit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -30,29 +35,42 @@ public class consultarExcluirPasseio extends javax.swing.JFrame {
         this.setTitle("Consultar/Excluir pela placa");  
     }
     
-    public String[] lendoArquivoTxt(String[] args){
+    public void lendoArquivoTxt(){
+        
+        Object[] col;
+        col = new Object[4];
+        Object[][] lin;
+        lin = new Object[1][4];
+        String[] d = new String[4];
+        
         try{
             FileReader fr;
             fr = new FileReader("D:\\cadastro-passeio.txt");
-
             BufferedReader bf;
             bf = new BufferedReader(fr);
-
-            String linha;            
-            String[] carro = null;
             
-            for (int i=0; i<8; i++){
-                carro[i] = bf.readLine();
+            String linha = bf.readLine();
+            int contador = 1;
+            int i = 0;
+            
+            while(linha != null){
+                linha = bf.readLine();
+                lin[contador-1][i]=d[i];
+                
+                contador++;
+                i++;
             }
             
-            return carro;
+            DefaultTableModel dm;
+            dm = new DefaultTableModel(lin, col);
+            consultaTabel.setModel(dm);
         } catch(Exception e){
-
         }
-        return null;
     }
     
     public int procurandoPlaca(String placa){
+        int contador = 0;
+        
         try {
             FileReader fr;
             fr = new FileReader("D:\\cadastro-passeio.txt");
@@ -60,24 +78,36 @@ public class consultarExcluirPasseio extends javax.swing.JFrame {
             BufferedReader bf;
             bf = new BufferedReader(fr);
             
-            String linha = null;
-            int contador = 0;
+            // Contagem de linhas do arquivo de Cadastro.
+            int numLinhas = 0;
+            try {
+                File arquivoLeitura = new File("D:\\cadastro-passeio.txt");
+                long tamanhoArquivo = arquivoLeitura .length();
+                
+                FileInputStream fs = new FileInputStream(arquivoLeitura);
+                DataInputStream in = new DataInputStream(fs);
+                
+                LineNumberReader lineRead = new LineNumberReader(new InputStreamReader(in));
+                lineRead.skip(tamanhoArquivo);
+                numLinhas = lineRead.getLineNumber() + 1;
+            } catch (IOException e) {
+            }
             
-            while(!linha.equals(placa)){
+            String linha;
+            for(int i=0; i<numLinhas; i++){
                 linha = bf.readLine();
-                if (placa.equals(linha)){
+                if (linha.equals(placa)){
                     contador = 1;
                     break;
                 }
             }
-
-            return contador;
-            
+                        
         } catch (Exception e) {
         }
-        return 0;
+        
+        return contador;
     }
-
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -156,7 +186,7 @@ public class consultarExcluirPasseio extends javax.swing.JFrame {
 
         excluirButton.setBackground(new java.awt.Color(255, 153, 153));
         excluirButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        excluirButton.setText("Excluir");
+        excluirButton.setText("Excluir veículo");
         excluirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excluirButtonActionPerformed(evt);
@@ -248,7 +278,7 @@ public class consultarExcluirPasseio extends javax.swing.JFrame {
     private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
         // TODO add your handling code here:
         Object[] options = {"Sim", "Não"}; 
-        int n = JOptionPane.showOptionDialog(null," Deseja realmente excluir o cadastro ?","Aviso",
+        int n = JOptionPane.showOptionDialog(null," Deseja realmente excluir o veículo ?","Aviso",
                 JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE,null,options,options[0]);
 
           if(n == 0){
@@ -261,13 +291,14 @@ public class consultarExcluirPasseio extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
         String placa = placaTxt.getText();
-        procurandoPlaca(placa);
-        String contador = placa;
+        int contador = procurandoPlaca(placa);
         
-        if (contador.equals(0)){
+        
+        if (contador == 1){
             JOptionPane.showMessageDialog(null, "Achou!");
+            lendoArquivoTxt();
         }else{
-            JOptionPane.showMessageDialog(null, "Não há carro com essa placa!");
+            JOptionPane.showMessageDialog(null, "Não há carro com essa placa", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             placaTxt.setText(null);
             ((DefaultTableModel) consultaTabel.getModel()).setRowCount(0);
             ((DefaultTableModel) consultaTabel2.getModel()).setRowCount(0); 
